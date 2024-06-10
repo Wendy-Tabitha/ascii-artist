@@ -8,6 +8,13 @@
 * Command-Line Interface-: Accessible via the command line for easy input and output.
 * Error Handling:- Implements robust error handling to ensure reliable performance.
 
+## Instructions
+
+To clone this repository: use the command below on your terminal:
+```
+git clone (https://learn.zone01kisumu.ke/git/vandisi/ascii-art-fs.git)
+```
+
 ## Banner Format
 * Each character in the ASCII representation has a height of 8 lines. 
 * Characters are separated by a newline character \n. 
