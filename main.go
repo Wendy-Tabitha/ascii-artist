@@ -9,15 +9,24 @@ import (
 )
 
 func main() {
-	if len(os.Args) != 3 { // ckecks if the there are three agguements, if not, the programe prints nothing
-		fmt.Println("Usage: go run . [STRING] [BANNER]\n\nEX: go run . something standard")
+	usage := "Usage: go run . [STRING] [BANNER]\n\nEX: go run . something standard"
+	if len(os.Args) == 1 {
+		// go run .
+		return
+	} else if len(os.Args) > 3 {
+		// ckecks if the there are more than three agguements. which is an error
+		fmt.Println(usage)
+		os.Exit(1)
 		return
 	}
+
 	args := os.Args[1]
 
-	args = strings.ReplaceAll(args, "\n", "\\n") // replaces all the new lines in the arguement with a new line
+	// replaces all the new lines in the arguement with a new line
+	args = strings.ReplaceAll(args, "\n", "\\n")
 
-	if args == "\\n" { // if  the arguement is "\n" the program prints a new line
+	if args == "\\n" {
+		// if  the arguement is "\n" the program prints a new line
 		fmt.Println()
 		return
 	}
@@ -30,15 +39,15 @@ func main() {
 		if chr > '~' {
 			fmt.Println("Error : Non Ascii character found!! can not display the graphic representation")
 			return
-			// checks if the arguement is an empty string , and prints nothing incase the condition is met
 		}
 	}
-	// asigning a variable, asciiArtFile that's going to store the value of the banner files
-	asciiArtFile := os.Args[2]
 
-	// if len(os.Args) == 3 {
-	// 	args2 := os.Args[2]
-	// fmt.Println(args2)
+	// asigning a variable, asciiArtFile that's going to store the value of the banner files
+	asciiArtFile := "standard"
+	if len(os.Args) > 2 {
+		asciiArtFile = os.Args[2]
+	}
+
 	switch asciiArtFile {
 	case "standard":
 		asciiArtFile = "standard.txt"
@@ -52,19 +61,20 @@ func main() {
 		asciiArtFile = "lean.txt"
 	default:
 		if !(asciiArtFile == "standard" || asciiArtFile == "thinkertoy" || asciiArtFile == "shadow" || asciiArtFile == "asteric" || asciiArtFile == "lean") {
-			fmt.Println("Usage: go run . [STRING] [BANNER]")
-			os.Exit(0)
+			fmt.Printf("invalid banner: %q\nmust be one of: standard, shadow, thinkertoy, asteric or lean\n", asciiArtFile)
+			os.Exit(1)
 		}
 	}
 
-	//}
-
 	// the variable inputArgs splits the string(arguement) into substrings, by a separator "\n"
 	inputArgs := strings.Split(args, "\\n")
-	asciiArt, err := os.ReadFile(asciiArtFile) // reading the bannerfile
+	// read the bannerfile
+	asciiArt, err := os.ReadFile(asciiArtFile)
 	if err != nil {
-		fmt.Println("Error reading file", err)
+		fmt.Printf("Error reading file: %q\n%v\n", asciiArtFile, err)
+		os.Exit(1)
 	}
+
 	// the variable asciiArtFile stores the data read from bytes to string
 	asciiArtString := string(asciiArt)
 
