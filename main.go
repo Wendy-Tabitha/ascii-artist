@@ -48,6 +48,8 @@ func main() {
 		asciiArtFile = "asteric.txt"
 	case "shadow":
 		asciiArtFile = "shadow.txt"
+	case "lean":
+		asciiArtFile = "lean.txt"
 	default:
 		if !(asciiArtFile == "standard" || asciiArtFile == "thinkertoy" || asciiArtFile == "shadow" || asciiArtFile == "asteric") {
 			fmt.Println("Usage: go run . [STRING] [BANNER]")
