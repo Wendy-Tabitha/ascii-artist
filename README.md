@@ -1,4 +1,4 @@
-<h><b> ASCII ART </h></b>
+## ASCII ART
 * ASCII-art is a program written in Go that takes a string as input and outputs a graphic representation of the string using ASCII characters. This program supports numbers, letters, space, special characters, and newline characters. 
 
 ## Features ##
@@ -12,7 +12,7 @@
 
 To clone this repository: use the command below on your terminal:
 ```
-git clone (https://learn.zone01kisumu.ke/git/vandisi/ascii-art-fs.git)
+git clone https://learn.zone01kisumu.ke/git/vandisi/ascii-art-fs.git
 ```
 
 ## Banner Format
@@ -21,10 +21,13 @@ git clone (https://learn.zone01kisumu.ke/git/vandisi/ascii-art-fs.git)
 
 The program includes several banner formats for graphical representation using ASCII characters:
 
-* Shadow
-* Standard
-* Thinkertoy
-* The program automatically takes the banner format of Standard, but if the user wants to using other graphical representation, the banner format desired should be the third arguement. 
+* shadow
+* standard
+* thinkertoy
+* asteric
+* lean
+
+>  The program automatically takes the banner format of `standard`, but if the user wants to using other graphical representation, the banner format desired should be the third arguement. 
 
 ## Usage
 ```bash
