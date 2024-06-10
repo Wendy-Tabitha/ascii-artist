@@ -44,10 +44,12 @@ func main() {
 		asciiArtFile = "standard.txt"
 	case "thinkertoy":
 		asciiArtFile = "thinkertoy.txt"
+	case "asteric":
+		asciiArtFile = "asteric.txt"
 	case "shadow":
 		asciiArtFile = "shadow.txt"
 	default:
-		if !(asciiArtFile == "standard" || asciiArtFile == "thinkertoy" || asciiArtFile == "shadow") {
+		if !(asciiArtFile == "standard" || asciiArtFile == "thinkertoy" || asciiArtFile == "shadow" || asciiArtFile == "asteric") {
 			fmt.Println("Usage: go run . [STRING] [BANNER]")
 			os.Exit(0)
 		}
