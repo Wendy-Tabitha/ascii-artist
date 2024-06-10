@@ -21,7 +21,7 @@ The program includes several banner formats for graphical representation using A
 
 ## Usage
 ```bash
-go run . "Your Input String"
+go run . [STRING] [BANNER]
 ```
 ### Running Tests
 To run unit tests, navigate to the project directory and run:
