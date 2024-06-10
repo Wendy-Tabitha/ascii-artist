@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	if len(os.Args) != 3{ // ckecks if the there are three agguements, if not, the programe prints nothing
+	if len(os.Args) != 3 { // ckecks if the there are three agguements, if not, the programe prints nothing
 		fmt.Println("Usage: go run . [STRING] [BANNER]\n\nEX: go run . something standard")
 		return
 	}
