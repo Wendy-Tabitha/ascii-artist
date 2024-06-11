@@ -7,7 +7,7 @@
 * Customizable Templates:- Provides different graphical templates such as "shadow," "standard," and "thinkertoy" for ASCII representation.
 * Command-Line Interface-: Accessible via the command line for easy input and output.
 * Error Handling:- Implements robust error handling to ensure reliable performance.
-* We also included our own bannerfiles i.e lean and asteric
+* We also included our own bannerfile i.e lean.txt
 
 ## Instructions
 
@@ -26,7 +26,6 @@ The program includes several banner formats for graphical representation using A
 * shadow
 * standard
 * thinkertoy
-* asteric
 * lean
 
 >  The program automatically takes the banner format of `standard`, but if the user wants to use other graphical representation, the banner format desired should be the third arguement in lower case as listed above.
