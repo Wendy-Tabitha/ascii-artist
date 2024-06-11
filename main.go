@@ -14,7 +14,7 @@ func main() {
 		// go run .
 		return
 	} else if len(os.Args) > 3 {
-		// ckecks if the there are more than three agguements. which is an error
+		// ckecks if the there are more than three agguements.
 		fmt.Println(usage)
 		os.Exit(1)
 		return
@@ -53,15 +53,13 @@ func main() {
 		asciiArtFile = "standard.txt"
 	case "thinkertoy":
 		asciiArtFile = "thinkertoy.txt"
-	case "asteric":
-		asciiArtFile = "asteric.txt"
 	case "shadow":
 		asciiArtFile = "shadow.txt"
 	case "lean":
 		asciiArtFile = "lean.txt"
 	default:
-		if !(asciiArtFile == "standard" || asciiArtFile == "thinkertoy" || asciiArtFile == "shadow" || asciiArtFile == "asteric" || asciiArtFile == "lean") {
-			fmt.Printf("invalid banner: %q\nmust be one of: standard, shadow, thinkertoy, asteric or lean\n", asciiArtFile)
+		if !(asciiArtFile == "standard" || asciiArtFile == "thinkertoy" || asciiArtFile == "shadow" || asciiArtFile == "lean") {
+			fmt.Printf("invalid banner: %q\nmust be one of: standard, shadow, thinkertoy or lean\n", asciiArtFile)
 			os.Exit(1)
 		}
 	}
