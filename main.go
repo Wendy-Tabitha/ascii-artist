@@ -11,7 +11,7 @@ import (
 func main() {
 	usage := "Usage: go run . [STRING] [BANNER]\n\nEX: go run . something standard"
 	if len(os.Args) == 1 {
-		// go run .
+		fmt.Println(usage)
 		return
 	} else if len(os.Args) > 3 {
 		// checks if the there are more than three arguements.
