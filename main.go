@@ -14,9 +14,8 @@ func main() {
 		// go run .
 		return
 	} else if len(os.Args) > 3 {
-		// ckecks if the there are more than three agguements.
+		// checks if the there are more than three arguements.
 		fmt.Println(usage)
-		os.Exit(1)
 		return
 	}
 
@@ -58,10 +57,8 @@ func main() {
 	case "lean":
 		asciiArtFile = "lean.txt"
 	default:
-		if !(asciiArtFile == "standard" || asciiArtFile == "thinkertoy" || asciiArtFile == "shadow" || asciiArtFile == "lean") {
-			fmt.Printf("invalid banner: %q\nmust be one of: standard, shadow, thinkertoy or lean\n", asciiArtFile)
-			os.Exit(1)
-		}
+		fmt.Println(usage)
+		return
 	}
 
 	// the variable inputArgs splits the string(arguement) into substrings, by a separator "\n"
@@ -70,7 +67,7 @@ func main() {
 	asciiArt, err := os.ReadFile(asciiArtFile)
 	if err != nil {
 		fmt.Printf("Error reading file: %q\n%v\n", asciiArtFile, err)
-		os.Exit(1)
+		return
 	}
 
 	// the variable asciiArtFile stores the data read from bytes to string
