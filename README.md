@@ -9,16 +9,18 @@
 * Error Handling:- Implements robust error handling to ensure reliable performance.
 * We also included our own bannerfile i.e lean.txt
 
-## Instructions
+## Instructions to run Locally
 
-To clone this repository: use the command below on your terminal:
-```
+To clone this repository, copy the command below on your terminal:
+```bash
 git clone https://learn.zone01kisumu.ke/git/vandisi/ascii-art-fs.git
 ```
-After cloning change directory to the file cloned as follows:
-```
+
+Go to the project directory
+```bash
 cd ascii-art-fs
 ```
+
 
 ## Banner Format
 * Each character in the ASCII representation has a height of 8 lines.
@@ -37,8 +39,9 @@ The program includes several banner formats for graphical representation using A
 ## Usage
 - To run the program, use the command below;
 ```bash
-go run . [STRING] [BANNER]
+go run . [OPTION] [STRING] [BANNER]
 ```
+EX: go run . --output=<fileName.txt> something standard
 ### Running Tests
 To run unit tests, navigate to the project directory and run:
 ```bash
@@ -46,6 +49,6 @@ go test -v
 ```
 
 ## AUTHORS
-* (hanapiko[https://learn.zone01kisumu.ke/git/hanapiko])
+* (hanapiko)[https://learn.zone01kisumu.ke/git/hanapiko]
 * (weakinyi)[https://learn.zone01kisumu.ke/git/weakinyi]
 * (vandisi)[https://learn.zone01kisumu.ke/git/vandisi]
