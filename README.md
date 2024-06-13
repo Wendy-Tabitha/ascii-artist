@@ -51,7 +51,9 @@ go test -v
 
 ## AUTHORS
 - [@hanapiko](https://learn.zone01kisumu.ke/git/hanapiko)
+
 - [@weakinyi](https://learn.zone01kisumu.ke/git/weakinyi)
+
 - [@vandisi](https://learn.zone01kisumu.ke/git/vandisi)
 
 ## License
