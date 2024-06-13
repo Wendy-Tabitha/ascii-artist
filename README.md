@@ -9,9 +9,10 @@
 * Error Handling:- Implements robust error handling to ensure reliable performance.
 * We also included our own bannerfile i.e lean.txt
 
-## Instructions to run Locally
+## Instructions to run locally
 
 To clone this repository, copy the command below on your terminal:
+
 ```bash
 git clone https://learn.zone01kisumu.ke/git/vandisi/ascii-art-fs.git
 ```
@@ -49,6 +50,10 @@ go test -v
 ```
 
 ## AUTHORS
-* (hanapiko)[https://learn.zone01kisumu.ke/git/hanapiko]
-* (weakinyi)[https://learn.zone01kisumu.ke/git/weakinyi]
-* (vandisi)[https://learn.zone01kisumu.ke/git/vandisi]
+- [@hanapiko](https://learn.zone01kisumu.ke/git/hanapiko)
+- [@weakinyi](https://learn.zone01kisumu.ke/git/weakinyi)
+- [@vandisi](https://learn.zone01kisumu.ke/git/vandisi)
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
