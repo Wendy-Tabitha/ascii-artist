@@ -15,6 +15,10 @@ To clone this repository: use the command below on your terminal:
 ```
 git clone https://learn.zone01kisumu.ke/git/vandisi/ascii-art-fs.git
 ```
+After cloning change directory to the file cloned as follows:
+```
+cd ascii-art-fs
+```
 
 ## Banner Format
 * Each character in the ASCII representation has a height of 8 lines.
@@ -40,3 +44,8 @@ To run unit tests, navigate to the project directory and run:
 ```bash
 go test -v
 ```
+
+## AUTHORS
+* (hanapiko[https://learn.zone01kisumu.ke/git/hanapiko])
+* (weakinyi)[https://learn.zone01kisumu.ke/git/weakinyi]
+* (vandisi)[https://learn.zone01kisumu.ke/git/vandisi]
