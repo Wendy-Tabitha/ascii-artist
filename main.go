@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"asciiartfs/functions"
+	"ascii/functions"
 )
 
 func main() {
