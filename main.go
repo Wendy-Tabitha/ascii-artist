@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"ascii/functions"
+	"ascii/graphics"
 )
 
 func main() {
