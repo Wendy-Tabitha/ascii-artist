@@ -119,7 +119,19 @@ func Expressions(s string) (bool, string) {
 	if re.MatchString(s) {
 		matches := re.FindStringSubmatch(s)
 		// fmt.Println(matches)
+		if matches[1] == "standard.txt" || matches[1] == "shadow.txt" || matches[1] == "thinkertoy.txt" || matches[1] == "lean.txt" {
+			fmt.Println("File already exists, use another file name at the flag")
+			os.Exit(1)
+		}
+		if !strings.HasSuffix(matches[1], ".txt") {
+			fmt.Println("Use a txt file for the flag")
+			os.Exit(1)
+		}
 		return true, matches[1]
+	} else {
+		//	if matches == nil {
+		fmt.Println("Incorrect match")
+		os.Exit(1)
 	}
 	return false, ""
 }
