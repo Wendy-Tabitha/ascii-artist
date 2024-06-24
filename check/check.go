@@ -106,13 +106,6 @@ func ArtFile(banner string) string {
 	return ""
 }
 
-//--output=file.txt
-// func isFlag(str string) bool {
-// 	re := regexp.MustCompile(`^--([^-]).+`)
-// 	match := re.FindStringSubmatch(str)
-// 	return match != nil
-// }
-
 // This function is used to check if the flags to be matched are the same.
 func Expressions(s string) (bool, string) {
 	re := regexp.MustCompile(`^--output=(.+)`)
@@ -128,10 +121,6 @@ func Expressions(s string) (bool, string) {
 			os.Exit(1)
 		}
 		return true, matches[1]
-	} else {
-		//	if matches == nil {
-		fmt.Println("Incorrect match")
-		os.Exit(1)
 	}
 	return false, ""
 }
