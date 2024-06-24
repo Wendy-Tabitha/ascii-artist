@@ -12,14 +12,13 @@ import (
 
 func main() {
 	args := os.Args[1:]
-	check.Usage(args)
+	data := check.Usage(args)
 
-	text := args[0]
-	text = check.Text(text)
+	text := check.Text(data.Text)
 
 	banner := "standard"
-	if len(os.Args) > 2 {
-		banner = os.Args[2]
+	if data.Banner != "" {
+		banner = data.Banner
 	}
 	asciiArtFile := check.ArtFile(banner)
 	bannerFileContents := file.ReadArtFile(asciiArtFile)
@@ -28,5 +27,15 @@ func main() {
 	inputArgs := strings.Split(text, "\\n")
 
 	output := graphics.Graphic(inputArgs, bannerFileContents)
+	if data.OutputFile != "" {
+		// wrte output to data.OutputFile
+		result := []byte(output)
+		err := os.WriteFile(data.OutputFile, result, 0644)
+		if err != nil {
+			fmt.Println("Error writing to file", err)
+			os.Exit(1)
+		}
+		return
+	}
 	fmt.Print(output)
 }
