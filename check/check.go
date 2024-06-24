@@ -25,9 +25,8 @@ func Usage(args []string) types.Data {
 		if isValid {
 			return out
 		} else {
-			PrintUsage()
+			out.Text = args[0]
 		}
-		out.Text = args[0]
 	} else if len(args) == 2 {
 		isValid, filename := Expressions(args[0])
 		if isValid {
