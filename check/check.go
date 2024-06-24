@@ -3,12 +3,14 @@ package check
 import (
 	"fmt"
 	"os"
+	"regexp"
 	"strings"
+
+	"ascii/types"
 )
 
 // Usage checks if the program was supplied the expected command-line arguments, exits on usage error
-func Usage(args []string) {
-	// args =  os.Args[1:]
+func Usage(args []string) types.Data {
 	if len(args) == 0 {
 		// case: go run .
 		os.Exit(0)
@@ -16,11 +18,68 @@ func Usage(args []string) {
 		// checks if the there are more than three arguements
 		PrintUsage()
 	}
+
+	var out types.Data
+
+	// args =  os.Args[1:]
+
+	// go run . Hello
+	// go run . --output=file.txt
+	if len(args) == 1 {
+		str := args[0] // ---ouput=file.txt
+		if isFlag(str) {
+			Expressions(str)
+		} else {
+			out.Text = str
+		}
+	}
+
+	// go run . --output=file.txt Hello
+	// go run . Hello shadow
+	if len(args) == 2 {
+		first, second := args[0], args[1]
+		if isFlag(first) {
+			isValid, fileName := Expressions(first)
+			if isValid {
+				out.OutputFile = fileName
+				out.Text = second
+			} else {
+				PrintUsage()
+			}
+			// out.Text = second
+		} else if isFlag(second) {
+			PrintUsage()
+		} else {
+			out.Text = first
+			out.Banner = second
+		}
+	}
+	// go run . --output=file.txt Hello shadow
+
+	if len(args) == 3 {
+		first, second, third := args[0], args[1], args[2]
+		if isFlag(first) {
+			isValid, fileName := Expressions(first)
+			if isValid {
+				out.OutputFile = fileName
+				out.Text = second
+				out.Banner = third
+			} else {
+				PrintUsage()
+			}
+			// out.Text = second
+			// out.Banner = third
+		} else if isFlag(second) || isFlag(third) {
+			PrintUsage()
+		}
+	}
+
+	return out
 }
 
 // PrintUsage prints the program usage information, then exits the program with the error code 1.
 func PrintUsage() {
-	usage := "Usage: go run . [STRING] [BANNER]\n\nEX: go run . something standard"
+	usage := "Usage: go run . [OPTION] [STRING] [BANNER]\n\nEX: go run . --output=<fileName.txt> something standard"
 	fmt.Println(usage)
 	os.Exit(1)
 }
@@ -54,7 +113,7 @@ func Text(text string) string {
 	return out
 }
 
-// ArtFile given a banner, returns the name of the file with the graphics for the given banner 
+// ArtFile given a banner, returns the name of the file with the graphics for the given banner
 func ArtFile(banner string) string {
 	switch banner {
 	case "standard":
@@ -71,4 +130,21 @@ func ArtFile(banner string) string {
 	}
 
 	return ""
+}
+
+func isFlag(str string) bool {
+	re := regexp.MustCompile(`^--([^-]).+`)
+	match := re.FindStringSubmatch(str)
+	return match != nil
+}
+
+// This function is used to check if the flags to be matched are the same.
+func Expressions(s string) (bool, string) {
+	re := regexp.MustCompile(`^--output=(.+)`)
+	if re.MatchString(s) {
+		matches := re.FindStringSubmatch(s)
+		// fmt.Println(matches)
+		return true, matches[1]
+	}
+	return false, ""
 }
