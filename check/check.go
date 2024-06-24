@@ -18,62 +18,37 @@ func Usage(args []string) types.Data {
 		// checks if the there are more than three arguements
 		PrintUsage()
 	}
-
 	var out types.Data
 
-	// args =  os.Args[1:]
-
-	// go run . Hello
-	// go run . --output=file.txt
 	if len(args) == 1 {
-		str := args[0] // ---ouput=file.txt
-		if isFlag(str) {
-			Expressions(str)
+		isValid, _ := Expressions(args[0])
+		if isValid {
+			return out
 		} else {
-			out.Text = str
-		}
-	}
-
-	// go run . --output=file.txt Hello
-	// go run . Hello shadow
-	if len(args) == 2 {
-		first, second := args[0], args[1]
-		if isFlag(first) {
-			isValid, fileName := Expressions(first)
-			if isValid {
-				out.OutputFile = fileName
-				out.Text = second
-			} else {
-				PrintUsage()
-			}
-			// out.Text = second
-		} else if isFlag(second) {
 			PrintUsage()
-		} else {
-			out.Text = first
-			out.Banner = second
 		}
-	}
-	// go run . --output=file.txt Hello shadow
-
-	if len(args) == 3 {
-		first, second, third := args[0], args[1], args[2]
-		if isFlag(first) {
-			isValid, fileName := Expressions(first)
-			if isValid {
-				out.OutputFile = fileName
-				out.Text = second
-				out.Banner = third
-			} else {
-				PrintUsage()
-			}
-			// out.Text = second
-			// out.Banner = third
-		} else if isFlag(second) || isFlag(third) {
+		out.Text = args[0]
+	} else if len(args) == 2 {
+		isValid, filename := Expressions(args[0])
+		if isValid {
+			out.Text = args[1]
+			out.OutputFile = filename
+		} else if !strings.HasPrefix(args[0], "--") {
+			out.Text = args[0]
+			out.Banner = args[1]
+		} else {
+			PrintUsage()
+		}
+	} else if len(args) == 3 {
+		isValid, filename := Expressions(args[0])
+		if isValid {
+			out.OutputFile = filename
+			out.Text = args[1]
+			out.Banner = args[2]
+		} else {
 			PrintUsage()
 		}
 	}
-
 	return out
 }
 
@@ -132,11 +107,12 @@ func ArtFile(banner string) string {
 	return ""
 }
 
-func isFlag(str string) bool {
-	re := regexp.MustCompile(`^--([^-]).+`)
-	match := re.FindStringSubmatch(str)
-	return match != nil
-}
+//--output=file.txt
+// func isFlag(str string) bool {
+// 	re := regexp.MustCompile(`^--([^-]).+`)
+// 	match := re.FindStringSubmatch(str)
+// 	return match != nil
+// }
 
 // This function is used to check if the flags to be matched are the same.
 func Expressions(s string) (bool, string) {
