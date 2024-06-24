@@ -1,6 +1,8 @@
 package file
 
 import (
+	// "crypto/sha256"
+	// "encoding/hex"
 	"fmt"
 	"os"
 	"regexp"
@@ -10,6 +12,12 @@ import (
 func ReadArtFile(asciiArtFile string) []string {
 	// read the bannerfile
 	asciiArt, err := os.ReadFile(asciiArtFile)
+
+	if len(asciiArt) == 0 {
+		fmt.Println("Empty banner file")
+		os.Exit(1)
+	}
+	
 	if err != nil {
 		fmt.Printf("Error reading file: %q\n%v\n", asciiArtFile, err)
 		os.Exit(1)
