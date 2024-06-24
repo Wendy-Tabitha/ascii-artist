@@ -1,8 +1,6 @@
 package file
 
 import (
-	// "crypto/sha256"
-	// "encoding/hex"
 	"fmt"
 	"os"
 	"regexp"
