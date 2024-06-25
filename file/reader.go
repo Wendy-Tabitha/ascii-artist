@@ -15,7 +15,7 @@ func ReadArtFile(asciiArtFile string) []string {
 		fmt.Println("Empty banner file")
 		os.Exit(1)
 	}
-	
+
 	if err != nil {
 		fmt.Printf("Error reading file: %q\n%v\n", asciiArtFile, err)
 		os.Exit(1)
