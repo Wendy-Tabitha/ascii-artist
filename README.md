@@ -14,12 +14,12 @@
 To clone this repository, copy the command below on your terminal:
 
 ```bash
-git clone https://learn.zone01kisumu.ke/git/vandisi/ascii-art-fs.git
+git clone https://learn.zone01kisumu.ke/git/vandisi/ascii-art-output.git
 ```
 
 Go to the project directory
 ```bash
-cd ascii-art-fs
+cd ascii-art-output
 ```
 
 
