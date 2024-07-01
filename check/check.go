@@ -23,7 +23,7 @@ func Usage(args []string) types.Data {
 	if len(args) == 1 {
 		isValid, _ := Expressions(args[0])
 		if isValid {
-			return out
+			PrintUsage()
 		} else {
 			out.Text = args[0]
 		}
