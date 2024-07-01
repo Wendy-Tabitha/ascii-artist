@@ -1,25 +1,32 @@
-## ASCII ART
-* ASCII-art is a program written in Go that takes a string as input and outputs a graphic representation of the string using ASCII characters. 
+## ASCII ART OUTPUT
+* ASCII-art-output is a program written in Go that takes a string as input and outputs a graphic representation of the string using ASCII characters.
+* Additionally the file name of the program must be named using flag --output=<filename.txt>, where --output is the flag and <filename.txt> is the file name which will contain the output.
 
 ## Features ##
-* Input Handling :-  Accepts strings containing numbers, letters, spaces, special characters, and a newline character.
+* Input Handling :-  Accepts strings containing numbers, letters, a space, special characters, and a newline character.
 * ASCII Representation:- Converts the input string into a graphical representation using ASCII characters.
 * Customizable Templates:- Provides different graphical templates such as "shadow," "standard," and "thinkertoy" for ASCII representation.
 * Command-Line Interface-: Accessible via the command line for easy input and output.
 * Error Handling:- Implements robust error handling to ensure reliable performance.
 * We also included our own bannerfile i.e lean.txt
+* Additionally, the program must still be able to run with a single [STRING] argument.  Example : (go run . hello) output printed should be (hello) in the specified graphical representation
 
 ## Instructions to run locally
 
 To clone this repository, copy the command below on your terminal:
 
 ```bash
-git clone https://learn.zone01kisumu.ke/git/vandisi/ascii-art-output.git
+git clone https://learn.zone01kisumu.ke/git/hanapiko/ascii-art-output.git
 ```
 
 Go to the project directory
 ```bash
 cd ascii-art-output
+```
+## Usage
+- To run the program, use the command below;
+```bash
+go run . [OPTION] [STRING] [BANNER]
 ```
 
 
@@ -37,11 +44,7 @@ The program includes several banner formats for graphical representation using A
 
 >  The program automatically takes the banner format of `standard`, but if the user wants to use other graphical representation, the banner format desired should be the third arguement in lower case as listed above.
 
-## Usage
-- To run the program, use the command below;
-```bash
-go run . [OPTION] [STRING] [BANNER]
-```
+
 EX: go run . --output=<fileName.txt> something standard
 ### Running Tests
 To run unit tests, navigate to the project directory and run:
