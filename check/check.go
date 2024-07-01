@@ -112,8 +112,10 @@ func Expressions(s string) (bool, string) {
 	if re.MatchString(s) {
 		matches := re.FindStringSubmatch(s)
 		// fmt.Println(matches)
-		if matches[1] == "standard.txt" || matches[1] == "shadow.txt" || matches[1] == "thinkertoy.txt" || matches[1] == "lean.txt" {
-			fmt.Println("File already exists, use another file name at the flag")
+		fileInfo , _ := os.Stat(matches[1])
+		if fileInfo != nil {
+			// file exists 
+			fmt.Println("File already exists, use another file name")
 			os.Exit(1)
 		}
 		if !strings.HasSuffix(matches[1], ".txt") {
